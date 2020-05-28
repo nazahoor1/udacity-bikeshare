@@ -167,18 +167,19 @@ def user_stats(df):
     print('\nCalculating User Stats...\n')
     start_time = time.time()
 
-    # Cleansing Nan values in gender
-    df['Gender'] = df['Gender'].fillna(value='unknown')
     # TO DO: Display counts of user types
     print('Count of the User Types are as follows')
     print(df['User Type'].value_counts(), '\n')
-    # TO DO: Display counts of gender
-    print('Count of the User Genders are as follows')
-    print(df['Gender'].value_counts(), '\n')
-    # TO DO: Display earliest, most recent, and most common year of birth
-    print('Earilest Year of Birth for Members is {}\n'.format(int(df['Birth Year'].min())))
-    print('Recent Year of Birth for Members is {}\n'.format(int(df['Birth Year'].max())))
-    print('Most common Year of Birth for Members is {}\n'.format(int(df['Birth Year'].mean())))
+    if 'Gender' in df.columns:
+        # Cleansing Nan values in gender
+        df['Gender'] = df['Gender'].fillna(value='unknown')
+        # TO DO: Display counts of gender
+        print('Count of the User Genders are as follows')
+        print(df['Gender'].value_counts(), '\n')
+        # TO DO: Display earliest, most recent, and most common year of birth
+        print('Earilest Year of Birth for Members is {}\n'.format(int(df['Birth Year'].min())))
+        print('Recent Year of Birth for Members is {}\n'.format(int(df['Birth Year'].max())))
+        print('Most common Year of Birth for Members is {}\n'.format(int(df['Birth Year'].mean())))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-' * 40)
@@ -225,10 +226,7 @@ def main():
         elif menu_num == 3:
             trip_duration_stats(df)
         elif menu_num == 4:
-            if city == 'washington':
-                print('Gender & Birtday Data not available for Washington')
-            else:
-                user_stats(df)
+            user_stats(df)
         elif menu_num == 5:
             data_display(df)
         restart = input('\nWould you like to restart? Enter yes or no.\n')
