@@ -6,6 +6,7 @@ CITY_DATA = {'chicago': 'chicago.csv',
              'washington': 'washington.csv'}
 months = ['all', 'january', 'february', 'march', 'april', 'may', 'june']
 
+
 def get_filters():
     """
     Asks user to specify a city, month, and day to analyze.
@@ -32,7 +33,6 @@ def get_filters():
             continue
         else:
             break
-
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
     while True:
         day = input('Please enter day of week for filter(all, monday, tuesday, ... sunday) ').lower()
@@ -89,6 +89,8 @@ def time_stats(df, month, day):
         df - pandas DataFrame containing city data filtered by month and day
         (str) month - name of the month to filter by, or "all" to apply no month filter
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
+
+
     """
 
     print('\nCalculating The Most Frequent Times of Travel...\n')
@@ -184,6 +186,7 @@ def user_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-' * 40)
 
+
 def data_display(df):
     """Fucntion to display raw data to user"""
     count = 0
@@ -194,6 +197,7 @@ def data_display(df):
         if more.lower() != 'yes':
             break
 
+
 def main():
     while True:
         city, month, day = get_filters()
@@ -203,12 +207,12 @@ def main():
         print('1. Display statistics on the most frequent times of travel.')
         print('2. Display statistics on the most popular stations and trip.')
         print('3. Display statistics on the total and average trip duration.')
-        print('4. Displays statistics on bikeshare users. (Only for Chicago/New York City)')
+        print('4. Displays statistics on bikeshare users.')
         print('5. Show 5 rows of raw Data\n')
         while True:
             try:
                 menu_num = int(input('Enter Number:'))
-            except:
+            except ValueError:  # his is bare to handle all types of exceptions.
                 print('Invalid Number Please try Again')
                 continue
             else:
@@ -230,6 +234,8 @@ def main():
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
             break
+        if restart.lower() == 'yes':
+            continue
 
 
 if __name__ == "__main__":
