@@ -184,6 +184,17 @@ def user_stats(df):
     print('-' * 40)
 
 
+def data_display(df):
+    """Fucntion to display raw data to user"""
+    count = 0
+    while True:
+        print(df.iloc[count:count + 5])
+        count += 5
+        more = input('\nDo you want to see more raw data(Enter Yes or No?)')
+        if more.lower() != 'yes':
+            break
+
+
 def main():
     while True:
         city, month, day = get_filters()
@@ -219,7 +230,7 @@ def main():
             else:
                 user_stats(df)
         elif menu_num == 5:
-            print(df.head(5))
+            data_display(df)
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
             break
