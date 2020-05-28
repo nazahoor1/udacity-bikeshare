@@ -184,7 +184,6 @@ def user_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-' * 40)
 
-
 def data_display(df):
     """Fucntion to display raw data to user"""
     count = 0
@@ -194,7 +193,6 @@ def data_display(df):
         more = input('\nDo you want to see more raw data(Enter Yes or No?)')
         if more.lower() != 'yes':
             break
-
 
 def main():
     while True:
