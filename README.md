@@ -13,7 +13,9 @@ The company that provides the data is called Motivate,
 bike_share.py
 .gitignore
 
-Note: Python file requires data files which can be downloaded from here Udacity resource page
+Note: Python file requires data files which can be downloaded from here Udacity resource page in nanodegree link below
+https://www.udacity.com/course/programming-for-data-science-nanodegree--nd104
 
 ### Credits
 This Project is inspired by Udacity Nano Degree Project.
+https://www.udacity.com/course/programming-for-data-science-nanodegree--nd104
